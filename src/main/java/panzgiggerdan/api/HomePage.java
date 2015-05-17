@@ -1,0 +1,30 @@
+package panzgiggerdan.api;
+
+import panzgiggerdan.domain.Bookmark;
+import panzgiggerdan.servicess.BookmarkService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+@RequestMapping("/api/**")
+public class HomePage {
+    @Autowired
+    private BookmarkService service;
+    
+    @RequestMapping(value = "home",method = RequestMethod.GET)
+    public String Index(){
+        return "This is a Home Page";
+    }
+
+    @RequestMapping(value = "/bookmark",method = RequestMethod.GET)
+    public Bookmark getBookmark(){
+        Bookmark bookmark = new Bookmark.Builder("lyrics")
+                .link("www.bookmark.co.za").build();
+
+        return bookmark;
+    }
+
+}
