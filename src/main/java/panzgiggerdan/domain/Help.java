@@ -19,7 +19,7 @@ public class Help implements Serializable{
     private Help() {
     }
 
-      public Help(Builder builder){
+    public Help(Builder builder){
         helpInformation=builder.helpInformation;        
         id=builder.id;
         
