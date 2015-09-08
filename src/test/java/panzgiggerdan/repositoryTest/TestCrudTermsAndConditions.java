@@ -1,4 +1,4 @@
-package panzgiggerdan.repository;
+package panzgiggerdan.repositoryTest;
 
 import panzgiggerdan.repository.TermsAndConditionsRepository;
 import panzgiggerdan.App;
@@ -9,6 +9,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
+import panzgiggerdan.repository.TermsAndConditionsRepository;
 
 
 @SpringApplicationConfiguration(classes= App.class)
@@ -51,11 +52,9 @@ public class TestCrudTermsAndConditions extends AbstractTestNGSpringContextTests
 
         Assert.assertEquals("dont ever steal this app", updatedterms.getTerms());
 
-
-
     }
 
-    @Test(dependsOnMethods = "update", enabled = true)
+    @Test(dependsOnMethods = "update", enabled = false)
     public void delete() throws Exception {
          TermsAndConditions terms = repository.findOne(id);
         repository.delete(terms);

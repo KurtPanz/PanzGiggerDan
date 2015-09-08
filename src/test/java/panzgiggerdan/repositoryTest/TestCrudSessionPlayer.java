@@ -1,4 +1,4 @@
-package panzgiggerdan.repository;
+package panzgiggerdan.repositoryTest;
 
 import panzgiggerdan.repository.SessionPlayerRepository;
 import panzgiggerdan.App;
@@ -9,6 +9,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
+import panzgiggerdan.repository.SessionPlayerRepository;
 
 
 @SpringApplicationConfiguration(classes= App.class)
@@ -58,7 +59,7 @@ public class TestCrudSessionPlayer extends AbstractTestNGSpringContextTests{
 
     }
 
-    @Test(dependsOnMethods = "update", enabled = true)
+    @Test(dependsOnMethods = "update", enabled = false)
     public void delete() throws Exception {
         SessionPlayer sessionplayer = repository.findOne(id);
         repository.delete(sessionplayer);

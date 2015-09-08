@@ -1,4 +1,4 @@
-package panzgiggerdan.repository;
+package panzgiggerdan.repositoryTest;
 
 import panzgiggerdan.repository.BookmarkRepository;
 import panzgiggerdan.App;
@@ -9,6 +9,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
+import panzgiggerdan.repository.BookmarkRepository;
 
 
 @SpringApplicationConfiguration(classes= App.class)

@@ -1,7 +1,7 @@
 package panzgiggerdan.services.Impl;
 
 import panzgiggerdan.domain.Register;
-import panzgiggerdan.repository.RegisterRepository;
+import panzgiggerdan.repository.RegistersRepository;
 import panzgiggerdan.servicess.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class RegisterServiceImpl  implements RegisterService{
     @Autowired
-    RegisterRepository repository;
+    RegistersRepository repository;
     
     public List<Register> getRegisteredUsers() {
         List<Register> allusers = new ArrayList<Register>();

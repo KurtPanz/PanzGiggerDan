@@ -1,8 +1,9 @@
 package panzgiggerdan.domain;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.*;
+import org.hibernate.metamodel.source.annotations.entity.EmbeddableClass;
 
 
 @Entity
@@ -14,6 +15,8 @@ public class Register implements Serializable{
     private String userName;
     private String password; 
     private String confirmationPassword;
+    @Embedded
+    private Contact contact;
    
   
 
@@ -25,6 +28,7 @@ public class Register implements Serializable{
         password=builder.password;
         confirmationPassword=builder.confirmationPassword;
         id=builder.id;
+        contact=builder.contact;
         
     }
 
@@ -45,6 +49,10 @@ public class Register implements Serializable{
    
      return confirmationPassword;
     }
+    
+     public Contact getContact() {
+     return contact;
+    }
  
 
     public static class Builder{
@@ -52,6 +60,7 @@ public class Register implements Serializable{
         private String userName;
         private String password;
         private String confirmationPassword;
+        private Contact contact;
         
         public Builder(String value) {
             this.userName = value;
@@ -73,13 +82,18 @@ public class Register implements Serializable{
             this.id=value;
             return this;
         }
-
+ 
+         public Builder Contact(Contact value){
+            this.contact=value;
+            return this;
+        }
       
         public Builder copy(Register value){
             this.userName=value.getUserName();
             this.password=value.getPassword();  
             this.confirmationPassword=value.getConfirmationPassword();
             this.id=value.getId();
+            this.contact=value.getContact();
        
             return this;
         }
