@@ -14,4 +14,12 @@ public class TermsAndConditionsFactory {
         
         return termsAndConditions;
     }
+    
+     public static TermsAndConditions insertTerms(String termsText){
+        TermsAndConditions termsAndConditions = new TermsAndConditions
+                .Builder(termsText)                
+                .build();
+        
+        return termsAndConditions;
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface HelpService {
      List<Help> getHelp();
+     String insertHelp(String helpText);
+     void deleteHelp(Long id);
 }

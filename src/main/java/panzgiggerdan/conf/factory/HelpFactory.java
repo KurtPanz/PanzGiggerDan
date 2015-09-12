@@ -14,4 +14,12 @@ public class HelpFactory {
         
         return help;
     }
+        
+    public static Help insertHelp(String helpText){
+        Help help = new Help
+                .Builder(helpText)                
+                .build();
+        
+        return help;
+    }
 }

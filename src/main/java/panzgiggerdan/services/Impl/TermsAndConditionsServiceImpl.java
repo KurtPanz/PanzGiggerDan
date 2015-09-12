@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import panzgiggerdan.conf.factory.TermsAndConditionsFactory;
 
 
 @Service
@@ -24,5 +25,21 @@ public class TermsAndConditionsServiceImpl implements TermsAndConditionsService{
             allterms.add(terms);
         }
         return allterms;
+    }
+
+    @Override
+    public String insertTermsAndConditions(String termsText) {
+        TermsAndConditions termsAndConditions = TermsAndConditionsFactory
+                .insertTerms(termsText);
+        
+        return repository.save(termsAndConditions).toString();
+    }
+
+    @Override
+    public void deleteTerm(Long id) {
+    
+       TermsAndConditions termsAndConditions = repository.findOne(id);
+       repository.delete(termsAndConditions);
+    
     }
 }
