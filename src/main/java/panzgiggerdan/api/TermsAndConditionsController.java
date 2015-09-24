@@ -12,15 +12,14 @@ import panzgiggerdan.servicess.TermsAndConditionsService;
 
 
 @RestController
-@RequestMapping("/TermsAndConditionsController")
-//@RequestMapping(value="/bookmark/**")
+@RequestMapping("panzgiggerdan/TermsAndConditionsController")
 public class TermsAndConditionsController {
     @Autowired
     private TermsAndConditionsService service;
     
     //GETTERS
     
-     //localhost:8080/TermsAndConditionsController/TermsAndConditions_list
+     //localhost:8080/panzgiggerdan/TermsAndConditionsController/TermsAndConditions_list
     @RequestMapping(value = "/TermsAndConditions_list",method = RequestMethod.GET)
     public List<TermsAndConditions> getTerm() {
       return service.getTerms();
@@ -28,14 +27,14 @@ public class TermsAndConditionsController {
     
     //SETTERS    
     
-    //localhost:8080/TermsAndConditionsController/TermsAndConditions_insert?termsandconsText=you cannot use this app, with the intenstion of using it.
+    //localhost:8080/panzgiggerdan/TermsAndConditionsController/TermsAndConditions_insert?termsandconsText=you cannot use this app, with the intenstion of using it.
     @RequestMapping(value = "/TermsAndConditions_insert",method = RequestMethod.GET)
     public String insertTermsText(HttpServletRequest request) {        
       String termsText = request.getParameter("termsandconsText");
       return service.insertTermsAndConditions(termsText);
     }
 
-    //localhost:8080/TermsAndConditionsController/TermsAndConditions_delete/1
+    //localhost:8080/panzgiggerdan/TermsAndConditionsController/TermsAndConditions_delete/1
      @RequestMapping(value = "/TermsAndConditions_delete/{id}",method = RequestMethod.GET)
      public String delete(@PathVariable  Long id) {
       

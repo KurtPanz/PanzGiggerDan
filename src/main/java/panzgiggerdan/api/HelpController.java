@@ -11,7 +11,7 @@ import panzgiggerdan.domain.Help;
 import panzgiggerdan.servicess.HelpService;
 
 @RestController
-@RequestMapping("/HelpController")
+@RequestMapping("panzgiggerdan/HelpController")
 //@RequestMapping(value="/bookmark/**")
 public class HelpController {
     @Autowired
@@ -20,7 +20,7 @@ public class HelpController {
     
     //GETTERS
     
-    //localhost:8080/HelpController/Help_list
+    //localhost:8080/panzgiggerdan/HelpController/Help_list
     @RequestMapping(value = "/Help_list",method = RequestMethod.GET)
     public List<Help> getHelp() {
       return service.getHelp();
@@ -28,7 +28,7 @@ public class HelpController {
     
     //SETTERS    
     
-    //localhost:8080/HelpController/Help_insert?helptext=step:4 Now you need to add this to consideration
+    //localhost:8080/panzgiggerdan/HelpController/Help_insert?helptext=step:4 Now you need to add this to consideration
     @RequestMapping(value = "/Help_insert",method = RequestMethod.GET)
     public String insertHelpText(HttpServletRequest request) {
         
@@ -38,7 +38,7 @@ public class HelpController {
     
     //READERS OR DELETERS
     
-    //localhost:8080/HelpController/Help_delete/1
+    //localhost:8080/panzgiggerdan/HelpController/Help_delete/1
      @RequestMapping(value = "/Help_delete/{id}",method = RequestMethod.GET)
      public String delete(@PathVariable  Long id) {
       
