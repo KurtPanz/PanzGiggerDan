@@ -11,7 +11,7 @@ import panzgiggerdan.servicess.BookmarkService;
 
 
 @RestController
-@RequestMapping("panzgiggerdan/api/**")
+@RequestMapping("panzgiggerdan/api/")
 //@RequestMapping(value="/bookmark/**")
 public class HomePage {
     @Autowired
