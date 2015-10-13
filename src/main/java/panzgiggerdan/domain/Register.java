@@ -3,8 +3,6 @@ package panzgiggerdan.domain;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
-import org.hibernate.metamodel.source.annotations.entity.EmbeddableClass;
-
 
 @Entity
 public class Register implements Serializable{
