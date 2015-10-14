@@ -13,6 +13,8 @@ public class Bookmark implements Serializable{
     @Column(unique = true)
     private String name;
     private String link; 
+    private String username;
+    private String password; 
    
   
 
@@ -22,6 +24,8 @@ public class Bookmark implements Serializable{
       public Bookmark(Builder builder){
         name=builder.name;
         link=builder.link;
+        username=builder.username;
+        password=builder.password;
         id=builder.id;
         
     }
@@ -38,12 +42,22 @@ public class Bookmark implements Serializable{
    
      return link;
     }
- 
+    
+   public String getUsername() {
+        return username;
+    }
+   
+   public String getPassword() {
+        return password;
+    }
 
     public static class Builder{
         private Long id;
         private String name;
         private String link;
+        private String username;
+        private String password;
+        
         
         public Builder(String value) {
             this.name = value;
@@ -54,18 +68,28 @@ public class Bookmark implements Serializable{
             return this;
         }
 
-          
-
         public Builder id(Long value){
             this.id=value;
+            return this;
+        }
+        
+        public Builder username(String value){
+            this.username=value;
+            return this;
+        }
+        
+        public Builder password(String value){
+            this.password=value;
             return this;
         }
 
       
         public Builder copy(Bookmark value){
             this.name=value.getName();
-            this.link=value.getLink();      
+            this.link=value.getLink();                          
             this.id=value.getId();
+            this.username=value.getName();
+            this.password=value.getLink(); 
        
             return this;
         }
@@ -99,6 +123,9 @@ public class Bookmark implements Serializable{
         return "Bookmark{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", link='" + link + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

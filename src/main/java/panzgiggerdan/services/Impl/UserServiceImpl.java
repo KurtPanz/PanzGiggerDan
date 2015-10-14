@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository repository;
     
+    @Override
     public List<User> getUsers() {
         List<User> allusers = new ArrayList<User>();
 
@@ -27,8 +28,8 @@ public class UserServiceImpl implements UserService{
         }
         return allusers;
     }
-    
-     public List<User> validUser(String username,String password) {
+    @Override
+    public List<User> validUser(String username,String password) {
          
         List<User> validuser = new ArrayList<User>();
         User user = repository.findDistinctUserByUsernameAndPassword(username, password);  
@@ -54,7 +55,7 @@ public class UserServiceImpl implements UserService{
         {
           if(users.getUsername().equals(username) && users.getPassword().equals(password))
           {
-            return "user already exists.";
+            return "User already exists.";
           }
         }        
                   

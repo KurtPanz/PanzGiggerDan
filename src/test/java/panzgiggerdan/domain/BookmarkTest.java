@@ -38,12 +38,16 @@ public class BookmarkTest {
 
         values.put("name","lyrics");
         values.put("link", "www.cput.ac.za");
+        values.put("username","kurt");
+        values.put("password", "wasserfall");
 
         Bookmark bookmark =BookmarkFactory
                 .createBookmark(values);
 
         Assert.assertEquals("lyrics",bookmark.getName());
         Assert.assertEquals("www.cput.ac.za",bookmark.getLink());
+        Assert.assertEquals("kurt",bookmark.getUsername());
+        Assert.assertEquals("wasserfall",bookmark.getPassword());
     }
 
     @Test
@@ -53,6 +57,8 @@ public class BookmarkTest {
 
         values.put("name","lyrics");
         values.put("link", "www.cput.ac.za");
+        values.put("username","kurt");
+        values.put("password", "wasserfall");
         
         Bookmark bookmark =BookmarkFactory
                 .createBookmark(values);
@@ -64,6 +70,8 @@ public class BookmarkTest {
 
         Assert.assertEquals("lyrics",newbookmark.getName());
         Assert.assertEquals("www.lyrical.com",newbookmark.getLink());
+        Assert.assertEquals("kurt",bookmark.getUsername());
+        Assert.assertEquals("wasserfall",bookmark.getPassword());
      
 
     }

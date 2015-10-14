@@ -24,7 +24,10 @@ public class TestCrudBookmark extends AbstractTestNGSpringContextTests{
         System.out.println( "TestCrudBookmark create");
         Bookmark bookmark = new Bookmark
                 .Builder("lyrics")
-                .link("www.getlyrics.com").build();
+                .link("www.getlyrics.com")
+                .username("kurt")
+                .password("wass").build();
+                
         repository.save(bookmark);
         id=bookmark.getId();
         Assert.assertNotNull(bookmark.getId());
@@ -45,14 +48,15 @@ public class TestCrudBookmark extends AbstractTestNGSpringContextTests{
         Bookmark newbookmark = new Bookmark
                 .Builder(bookmark.getName())
                 .id(bookmark.getId())
-                .link("www.azlyrics.com").build();
+                .link("www.azlyrics.com")
+                .username("kurt")
+                .password("wass").build();
+        
         repository.save(newbookmark);
 
         Bookmark updatedbookmark = repository.findOne(id);
 
         Assert.assertEquals("www.azlyrics.com", updatedbookmark.getLink());
-
-
 
     }
 
