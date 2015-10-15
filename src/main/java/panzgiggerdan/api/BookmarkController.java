@@ -55,10 +55,12 @@ public class BookmarkController {
     public String updateBookmark(HttpServletRequest request) {
         
       String name = request.getParameter("name");
-      String link = request.getParameter("link"); 
+      String link = request.getParameter("link");
+      String username = request.getParameter("username");
+      String password = request.getParameter("password"); 
       String id = request.getParameter("id");
       
-      return service.updateBookmark(Long.parseLong(id),name,link);
+      return service.updateBookmark(Long.parseLong(id),name,link,username,password);
     }
     
     //READERS OR DELETERS

@@ -32,7 +32,9 @@ public class BookmarkFactory {
     public static Bookmark updateBookmark(Long id,String name,String link,String username,String password){
          Bookmark bookmark = new Bookmark
                 .Builder(name)
-                .link(link)                
+                .link(link) 
+                .username(username)
+                .password(password)
                 .id(id)
                 .build();
          

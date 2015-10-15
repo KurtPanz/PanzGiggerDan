@@ -61,26 +61,26 @@ public class BookmarkServiceImpl  implements BookmarkService{
     }
     
     @Override
-    public String updateBookmark(Long id,String name,String link) {  
+    public String updateBookmark(Long id,String name,String link, String username, String password) {  
         
          //check if user with name and surname exist then dont add
         Bookmark bookmark = repository.findOne(id);
         
-        if(bookmark == null)
-        {
+          if(bookmark == null)
+          {
              return "Bookmark does not exists.";
-        }
+          }
         
         Bookmark newbookmark = BookmarkFactory
-            .updateBookmark(id,name,link,bookmark.getUsername(),bookmark.getPassword());
+            .updateBookmark(id,name,link,username,password);
          
-        if(newbookmark.getId() != bookmark.getId())
+        if(newbookmark.getId()!= bookmark.getId())
         {           
            return "Bookmark does not exists.";
         }        
          
         return repository.save(newbookmark).toString();
-    }
+   }
     
     @Override
     public void deleteBookmark(Long id) {
